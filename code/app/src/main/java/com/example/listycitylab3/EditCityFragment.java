@@ -31,10 +31,9 @@ public class EditCityFragment extends DialogFragment{
     }
 
     public static EditCityFragment newInstance(City city, int position) {
-        EditCityFragment fragment = newInstance(city);
-        Bundle args = fragment.getArguments();
-        if (args==NULL) args = new Bundle();
-        args.putInt(ARG_POSITION, position);
+        Bundle args = new Bundle();
+        args.putSerializable(ARG_CITY, city);
+        EditCityFragment fragment = new EditCityFragment();
         fragment.setArguments(args);
         return fragment;
 
