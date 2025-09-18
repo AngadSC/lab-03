@@ -1,5 +1,5 @@
 package com.example.listycitylab3;
-import static java.sql.Types.NULL;
+
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -22,7 +22,7 @@ public class EditCityFragment extends DialogFragment{
 
     public static EditCityFragment newInstance(City city) {
         Bundle args = new Bundle();
-        args.putSerializable("city", city);
+        args.putSerializable(ARG_CITY, city);
         EditCityFragment fragment = new EditCityFragment();
         fragment.setArguments(args);
         return fragment;
@@ -31,9 +31,10 @@ public class EditCityFragment extends DialogFragment{
     }
 
     public static EditCityFragment newInstance(City city, int position) {
-        Bundle args = new Bundle();
-        args.putSerializable(ARG_CITY, city);
-        EditCityFragment fragment = new EditCityFragment();
+        EditCityFragment fragment = newInstance(city);
+        Bundle args = fragment.getArguments();
+        if (args == null) args = new Bundle();
+        args.putInt(ARG_POSITION, position);
         fragment.setArguments(args);
         return fragment;
 

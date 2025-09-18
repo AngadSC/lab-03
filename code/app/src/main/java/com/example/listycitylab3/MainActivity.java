@@ -37,7 +37,8 @@ public class MainActivity extends AppCompatActivity
 
         cityList.setOnItemClickListener((AdapterView<?> parent, android.view.View view, int position, long id) -> {
             City selected = dataList.get(position);
-            EditCityFragment.newInstance(selected,position).show(getSupportFragmentManager(),"EDIT_CITY)");
+            EditCityFragment.newInstance(selected,position)
+                    .show(getSupportFragmentManager(),"EDIT_CITY)");
 
 
         });
